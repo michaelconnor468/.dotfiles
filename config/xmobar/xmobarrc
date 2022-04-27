@@ -1,0 +1,22 @@
+Config { font = "xft:Ubuntu:weight=bold:pixelsize=12:antialias=true:hinting=true"
+        , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=12:antialiaz=true:hinting=true"
+                            , "xft:FontAwesome:pixelsize=13"
+                            ]
+        , bgColor      = "#1f2329"
+        , fgColor      = "#a0a8b7"
+        , position = TopW L 100 24
+        , commands = [ 
+                        Run Weather "CYVR" ["-t","<tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+                        , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                        , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                        , Run Memory ["-t","Mem: <usedratio>%"] 10
+                        , Run Swap [] 10
+                        , Run Com "uname" ["-s","-r"] "" 36000
+                        , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                        , Run StdinReader
+                        ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = "%StdinReader% | %cpu% | %memory% * %swap% | %eth0% - %eth1% }{<fc=#ee9a00>%date%</fc> | %uname% | %CYVR% "
+}
+

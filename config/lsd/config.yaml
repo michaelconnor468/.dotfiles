@@ -1,0 +1,36 @@
+classic: false
+
+blocks:
+  - permission
+  - user
+  - size
+  - name
+
+color:
+  when: auto
+  theme: custom
+
+date: '+%x %X'
+
+dereference: false
+
+icons:
+  when: auto
+  theme: fancy
+  seperator: ''
+
+indicators: false
+
+layout: oneline
+
+size: short # size column (bytes) not font size
+
+sorting:
+  column: extension
+  reverse: false
+  dir-grouping: first
+
+no-symlink: false
+total-size: false # for directories - true way too slow
+
+symlink-arrow: ⇒
