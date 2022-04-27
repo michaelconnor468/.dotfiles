@@ -10,6 +10,15 @@ telescope.setup {
     defaults = {
         prompt_prefix = ' > ',
         color_devicons = true,
+        layout_strategy = 'vertical',
+        layout_config = {
+            vertical = {
+                height = 0.9,
+                preview_cutoff = 40,
+                prompt_position = 'bottom',
+                width = 0.8
+            }
+        },
 
         file_previewer = require('telescope.previewers').vim_buffer_cat.new,
         grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
@@ -54,6 +63,7 @@ telescope.setup {
                 ['<C-x>'] = actions.select_horizontal,
                 ['<C-v>'] = actions.select_vertical,
                 ['<C-t>'] = actions.select_tab,
+                ['<C-d>'] = actions.delete_buffer,
 
                 ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
                 ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
@@ -71,8 +81,8 @@ telescope.setup {
                 ['gg'] = actions.move_to_top,
                 ['G'] = actions.move_to_bottom,
 
-                ['<C-u>'] = actions.preview_scrolling_up,
-                ['<C-d>'] = actions.preview_scrolling_down,
+                ['<C-k>'] = actions.preview_scrolling_up,
+                ['<C-j>'] = actions.preview_scrolling_down,
 
                 ['<PageUp>'] = actions.results_scrolling_up,
                 ['<PageDown>'] = actions.results_scrolling_down,

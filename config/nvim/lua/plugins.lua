@@ -43,7 +43,6 @@ return packer.startup(function(use)
     use 'williamboman/nvim-lsp-installer'
 
     -- Telescope
-    -- @@@ ENSURE RIPGREP IS INSTALLED ON SYSTEM @@@
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
@@ -53,4 +52,8 @@ return packer.startup(function(use)
     use 'kyazdani42/nvim-tree.lua'
 
     use 'akinsho/toggleterm.nvim'
+
+    use 'APZelos/blamer.nvim'
+    use 'phaazon/hop.nvim'
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 end)

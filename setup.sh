@@ -2,17 +2,24 @@
 DOTFILES_REPO="git@github.com:michaelconnor468/Dotfiles.git"
 
 push () {
-    if [ $# -eq 2 -a $2 = "all" ]; then
-        pacman -Qq > pacman.txt
+    if [ $# -eq 2 ]; then
+        if [ $2 = "all" ]; then
+            pacman -Qq > pacman.txt
+        fi
     fi
-    # use rsync to only update dirs that exist in both the repo and system
-    echo $*
+    for f in `find config -maxdepth 1 -mindepth 1 -type d`;
+    do
+        from_dir=`echo $f | awk 'BEGIN {FS="/"} {print $2}'`
+        rsync -a ~/.config/$from_dir config
+    done
+    git add config
+    git commit -am "Update tracked config folders to latest local edition"
+    git push origin master
 }
 
 pull () {
-    # use rsync to simply get stuff from the repo
-    # do for config and etc in the various locations
-    echo pull
+    git pull origin master
+    rsync -a config/* ~/.config
 }
 
 install () {

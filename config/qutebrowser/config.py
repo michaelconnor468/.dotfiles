@@ -1,11 +1,16 @@
 from themes.onedark import set_theme
 from qutebrowser.api import interceptor
+from adblock_list import adblock_list
 import os
 
 set_theme(c)
 config.load_autoconfig()
+
 c.backend = 'webengine'
 c.content.cookies.accept = 'no-3rdparty'
+c.content.blocking.method = 'both'
+c.new_instance_open_target = 'window'
+c.editor.command = ['urxvt -e vim {}']
 
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 
@@ -29,9 +34,10 @@ c.fonts.prompts = c.fonts.default_family
 c.fonts.statusbar = c.fonts.default_family
 c.fonts.hints = "bold 13px 'DejaVu Sans Mono'"
 
-
 c.auto_save.session = True
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+
+c.content.blocking.adblock.lists = adblock_list
 
 # Toggle statusbar and tabs
 config.bind('xb', 'config-cycle statusbar.show always never')
@@ -39,14 +45,6 @@ config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
-
-def filter_yt(info: interceptor.Request):
-    url = info.request_url
-    if url.host() == 'www.youtube.com' and url.path() == '/get_video_info' and '&adformat=' in url.query():
-        info.block()
-interceptor.register(filter_yt)
-
-config.bind('M', 'hint links spawn mpv {hint-url}')
 
 c.editor.command = [
     os.environ['TERMINAL'],

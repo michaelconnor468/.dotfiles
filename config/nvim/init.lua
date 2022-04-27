@@ -1,7 +1,6 @@
 require('vimconfigs')
 require('keymaps')
 require('plugins')
-
 require('onedark').setup { style = 'darker' }
 require('onedark').load()
 
@@ -14,3 +13,8 @@ require('config.autocomplete')
 require('config.telescope')
 require('config.autopairs')
 require('config.lsp')
+require('config.blamer')
+require('config.hop')
+require('config.neogit')
+
+vim.cmd('set runtimepath+=/home/james/Projects/vim')
