@@ -5,17 +5,17 @@ push () {
     if [ $# -eq 2 ]; then
         if [ $2 = "all" ]; then
             pacman -Qq > pacman.txt
+            for f in `find etc -maxdepth 1 -mindepth 1 -type d`;
+            do
+                from_dir=`echo $f | awk 'BEGIN {FS="/"} {print $3}'`
+                rsync -a /etc/$from_dir etc
+            done
         fi
     fi
     for f in `find config -maxdepth 1 -mindepth 1 -type d`;
     do
         from_dir=`echo $f | awk 'BEGIN {FS="/"} {print $2}'`
         rsync -a ~/.config/$from_dir config
-    done
-    for f in `find etc -maxdepth 1 -mindepth 1 -type d`;
-    do
-        from_dir=`echo $f | awk 'BEGIN {FS="/"} {print $3}'`
-        rsync -a /etc/$from_dir etc
     done
     exit 0
     git add config
@@ -26,12 +26,17 @@ push () {
 pull () {
     git pull origin master
     rsync -a config/* ~/.config
+    if [ $# -eq 2 ]; then
+        if [ $2 = "all" ]; then
+            rsync -a etc/* /etc
+        fi
+    fi
 }
 
 install () {
+    pull pull all
     # install yay if not present
     # install all packages from pacman.txt
-    # pull
     echo install
 }
 
