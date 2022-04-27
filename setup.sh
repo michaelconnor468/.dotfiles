@@ -35,9 +35,19 @@ pull () {
 
 install () {
     pull pull all
-    # install yay if not present
-    # install all packages from pacman.txt
-    echo install
+    sudo pacman -S base-devel
+    sudo pamcan -S git
+    pushd /opt
+    sudo git clone https://aur.archlinux.org/yay.git
+    sudo chown -R ./yay
+    cd yay
+    makepkg -si
+    popd
+    yay -Syyu
+    for package in `cat pacman.txt`;
+    do
+        yay -S $package
+    done
 }
 
 ehco_usage () {
