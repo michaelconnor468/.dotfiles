@@ -17,8 +17,7 @@ push () {
         from_dir=`echo $f | awk 'BEGIN {FS="/"} {print $2}'`
         rsync -a ~/.config/$from_dir config
     done
-    exit 0
-    git add config
+    git add config etc
     git commit -am "Update tracked config folders to latest local edition"
     git push origin master
 }
