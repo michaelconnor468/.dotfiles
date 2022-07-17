@@ -52,7 +52,7 @@ return packer.startup(function(use)
     use 'kyazdani42/nvim-tree.lua'
 
     use 'akinsho/toggleterm.nvim'
-
+    
     use 'APZelos/blamer.nvim'
     use 'phaazon/hop.nvim'
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }

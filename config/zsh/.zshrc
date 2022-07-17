@@ -25,7 +25,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})%{$reset_color%}"
-PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}] %{$fg[yellow]%}%c %(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>)%{$reset_color%}"
+PROMPT="%B%{$fg[blue]%}<%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}> %{$fg[yellow]%}%c %(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>)%{$reset_color%}"
 PROMPT+="\$vcs_info_msg_0_ "
 
 HISTSIZE=1000
@@ -36,7 +36,6 @@ export ZSH_COMPDUMP=~/.cache/zsh/zcompdump
 alias ls='lsd'
 alias la='lsd -Al'
 alias vim='nvim'
-alias df='df -h'
 alias cat='ccat -G String="darkgreen" -G Comment="darkgreen" -G Type="darkyellow" -G Plaintext="lightgray" -G Literal="darkyellow" -G Keyword="darkblue" -G Punctuation="lightgray" -G Decimal="darkred"'
 alias diff='diff --color'
 alias grep='grep --color=always'

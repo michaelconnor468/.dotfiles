@@ -64,12 +64,19 @@ cmp.setup {
             function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                elseif luasnip.expandable() then
+                elseif check_backspace() then
+                    fallback()
+                else
+                    fallback()
+                end
+            end, { 'i', 's' }
+        ),
+        ['<C-n>'] = cmp.mapping(
+            function(fallback)
+                if luasnip.expandable() then
                     luasnip.expand()
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
-                elseif check_backspace() then
-                    fallback()
                 else
                     fallback()
                 end
@@ -113,8 +120,8 @@ cmp.setup {
         select = false,
     },
      window = {
-        documentation = "native"
-      },
+        documentation = cmp.config.window.bordered()
+    },
     experimental = {
         ghost_text = false,
         native_menu = false,
