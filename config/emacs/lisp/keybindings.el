@@ -41,3 +41,4 @@
   (evil-collection-init))
 
 (use-package hydra)
+(define-key global-map (kbd "C-c C-j") (lambda () (interactive) (org-capture nil)))
