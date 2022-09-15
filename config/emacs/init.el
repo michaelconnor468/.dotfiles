@@ -19,6 +19,8 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
+(setq package-check-signature nil)
+
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes")
 (add-to-list 'load-path "~/.config/emacs/lisp")
 (load "keybindings.el")
@@ -38,7 +40,7 @@
  '(custom-safe-themes
    '("171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" default))
  '(package-selected-packages
-   '(atom-one-dark-theme atom-onedark-theme one-dark catppucchin-themes kaolin-themes monokai-theme gruvbox-theme tao-theme abyss-theme catppuccin-theme org-bullets forge evil-magit magit counsel-projectile projectile key-chord hydra evil-collection evil general one-themes helpful counsel ivy-rich which-key rainbow-delimiters swiper ivy use-package)))
+   '(gnu-elpa-keyring-update undo-tree atom-one-dark-theme atom-onedark-theme one-dark catppucchin-themes kaolin-themes monokai-theme gruvbox-theme tao-theme abyss-theme catppuccin-theme org-bullets forge evil-magit magit counsel-projectile projectile key-chord hydra evil-collection evil general one-themes helpful counsel ivy-rich which-key rainbow-delimiters swiper ivy use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

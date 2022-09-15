@@ -28,11 +28,10 @@ telescope.setup {
             i = {
                 ['<C-n>'] = actions.cycle_history_next,
                 ['<C-p>'] = actions.cycle_history_prev,
+                ['<C-u>'] = actions.move_selection_next,
+                ['<C-d>'] = actions.move_selection_previous,
 
-                ['<C-j>'] = actions.move_selection_next,
-                ['<C-k>'] = actions.move_selection_previous,
-
-                ['<C-c>'] = actions.close,
+                ['<C-;>'] = actions.close,
 
                 ['<Down>'] = actions.move_selection_next,
                 ['<Up>'] = actions.move_selection_previous,
@@ -42,8 +41,8 @@ telescope.setup {
                 ['<C-v>'] = actions.select_vertical,
                 ['<C-t>'] = actions.select_tab,
 
-                ['<C-u>'] = actions.preview_scrolling_up,
-                ['<C-d>'] = actions.preview_scrolling_down,
+                ['<C-k>'] = actions.preview_scrolling_up,
+                ['<C-j>'] = actions.preview_scrolling_down,
 
                 ['<PageUp>'] = actions.results_scrolling_up,
                 ['<PageDown>'] = actions.results_scrolling_down,
@@ -53,7 +52,7 @@ telescope.setup {
                 ['<C-q>'] = actions.send_to_qflist + actions.open_qflist,
                 ['<M-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
                 ['<C-l>'] = actions.complete_tag,
-                ['<C-_>'] = actions.which_key, -- keys from pressing <C-/>
+                ['<C-h>'] = actions.which_key
             },
 
             n = {
@@ -64,7 +63,7 @@ telescope.setup {
                 ['<C-v>'] = actions.select_vertical,
                 ['<C-t>'] = actions.select_tab,
                 ['<C-d>'] = actions.delete_buffer,
-
+                
                 ['<Tab>'] = actions.toggle_selection + actions.move_selection_worse,
                 ['<S-Tab>'] = actions.toggle_selection + actions.move_selection_better,
                 ['<C-q>'] = actions.send_to_qflist + actions.open_qflist,
@@ -87,7 +86,7 @@ telescope.setup {
                 ['<PageUp>'] = actions.results_scrolling_up,
                 ['<PageDown>'] = actions.results_scrolling_down,
 
-                ['?'] = actions.which_key,
+                ['<C-h>'] = actions.which_key
             },
         },
     },

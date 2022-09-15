@@ -40,5 +40,13 @@
   (setq evil-want-integration t)
   (evil-collection-init))
 
+(use-package undo-tree
+  :ensure t
+  :after evil
+  :diminish
+  :config
+  (evil-set-undo-system 'undo-tree)
+  (global-undo-tree-mode 1))
+(setq undo-tree-auto-save-history nil)
 (use-package hydra)
 (define-key global-map (kbd "C-c C-j") (lambda () (interactive) (org-capture nil)))
