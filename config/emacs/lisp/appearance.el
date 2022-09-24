@@ -7,11 +7,11 @@
 (global-display-line-numbers-mode 1)
 (setq display-line-numbers-type 'relative)
 
+(load-theme 'one-dark t)
+
 (set-face-attribute 'default nil :font "Source Code Pro" :height 120)
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 (show-paren-mode 1)
 (setq show-paren-style 'parenthesis)
-
-(load-theme 'one-dark t)

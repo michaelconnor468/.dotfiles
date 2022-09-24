@@ -1,5 +1,4 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-(windmove-default-keybindings)
 
 (use-package general
   :config
@@ -11,17 +10,17 @@
   (james/leader-keys
     "t" '(:ignore t :which-key "toggles")))
 
-(defun james/evil-hook ()
-  ())
-
 (use-package key-chord)
 (use-package evil
   :demand t
   :init
   (setq evil-want-keybinding nil)
+  (setq evil-want-Y-yank-to-eol t)
+  (setq evil-want-C-w-delete t)
   (setq evil-want-C-u-scroll t)
   (setq evil-want-C-i-jump t)
-  :hook (evil-mode . james/evil-hook)
+  (setq evil-track-eol t)
+  (setq evil-kill-on-visual-paste nil)
   :config
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
@@ -48,5 +47,8 @@
   (evil-set-undo-system 'undo-tree)
   (global-undo-tree-mode 1))
 (setq undo-tree-auto-save-history nil)
+
 (use-package hydra)
+(general-auto-unbind-keys t)
 (define-key global-map (kbd "C-c C-j") (lambda () (interactive) (org-capture nil)))
+(global-set-key [remap list-buffers] 'ibuffer)
