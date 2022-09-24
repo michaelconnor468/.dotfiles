@@ -4,7 +4,7 @@ DOTFILES_REPO="git@github.com:michaelconnor468/Dotfiles.git"
 stage () {
     if [ $# -eq 2 ]; then
         if [ $2 = "all" ]; then
-            pacman -Qq > pacman.txt
+            pacman -Qq > packages
             for f in `find etc -maxdepth 1 -mindepth 1 -type d`;
             do
                 from_dir=`echo $f | awk 'BEGIN {FS="/"} {print $3}'`
@@ -51,7 +51,7 @@ install () {
     makepkg -si
     popd
     yay -Syyu
-    for package in `cat pacman.txt`;
+    for package in `cat packages`;
     do
         yay -S $package
     done
