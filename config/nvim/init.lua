@@ -1,6 +1,37 @@
-require('vimconfigs')
-require('keymaps')
-require('plugins')
+local modules_to_load = {
+    'vimconfigs',
+    'keymaps',
+    'plugins',
+    'config.treesitter',
+    'config.nvimtree',
+    'config.comment',
+    'config.toggleterm',
+    'config.telescope',
+    'config.autocomplete',
+    'config.telescope',
+    'config.autopairs',
+    'config.lsp',
+    'config.blamer',
+    'config.hop',
+    'config.neogit'
+}
+
+local error_count = 0
+for _, module in ipairs(modules_to_load) do
+    local ok, _ = pcall(require, module)
+    if not ok then
+        if error_count == 0 then
+            print('### Errors in loading modules: ') 
+        end
+        print('Unable to load module ' .. module)
+        error_count = error_count + 1
+    end
+end
+
+if error_count > 0 then
+    print(' ')
+end
+
 require('onedark').setup { 
     style = 'darker',
     colors = {
@@ -13,18 +44,5 @@ require('onedark').setup {
     }
 }
 require('onedark').load()
-
-require('config.treesitter')
-require('config.nvimtree')
-require('config.comment')
-require('config.toggleterm')
-require('config.telescope')
-require('config.autocomplete')
-require('config.telescope')
-require('config.autopairs')
-require('config.lsp')
-require('config.blamer')
-require('config.hop')
-require('config.neogit')
 
 vim.cmd('set runtimepath+=/home/james/Projects/vim')
