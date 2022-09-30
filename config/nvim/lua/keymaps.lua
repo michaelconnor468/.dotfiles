@@ -15,14 +15,23 @@ vim.api.nvim_set_keymap('x', '<leader>p', '"_dP', { noremap = true })
 vim.api.nvim_set_keymap('n', 'S', ':%s///g<Left><Left><Left>', { noremap = true })
 vim.api.nvim_set_keymap('n', ',/', ':nohlsearch<CR>', { silent = true })
 
-vim.api.nvim_set_keymap('n', '<C-w>Up', '<cmd>resize -1<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w>Down', '<cmd>resize +1<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w>Left', '<cmd>vertical resize +1<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w>Right', '<cmd>vertical resize -1<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w><C-v>', '<cmd>vsplit<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w><C-s>', '<cmd>split<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-w>Up', '<cmd>resize -1<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-w>Down', '<cmd>resize +1<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-w>Left', '<cmd>vertical resize +1<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-w>Right', '<cmd>vertical resize -1<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-w><C-v>', '<cmd>vsplit<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-w><C-s>', '<cmd>split<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-w><C-e>', '<cmd>e #<CR>', { noremap = true })
 
-vim.api.nvim_set_keymap('n', '<C-h>i', '<cmd>vert h<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-h>i', '<cmd>vert h<CR>', { noremap = true })
+
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-x><C-s>', '<cmd>wall!<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-x><C-c>', '<cmd>qall!<CR>', { noremap = true })
+
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-g><C-t>', '<cmd>BlamerToggle<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-g><C-b>', '<cmd>Telescope git_branches<CR>', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-g><C-n>', '<cmd>!git checkout -b ', { noremap = true })
+vim.api.nvim_set_keymap({'n', 'v', 'i'}, '<C-g><C-g>', '<cmd>Neogit<CR>', { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<leader>s', '<cmd>e #<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>k', '<cmd>bnext<CR>', { noremap = true })
@@ -32,10 +41,5 @@ vim.api.nvim_set_keymap('n', '<leader>f', '<cmd>Telescope live_grep<CR>', { nore
 vim.api.nvim_set_keymap('n', '<leader>b', '<cmd>Telescope buffers<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>;', '<cmd>!%:p<CR>', { noremap = true })
-
-vim.api.nvim_set_keymap('n', '<C-g><C-t>', '<cmd>BlamerToggle<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-g><C-b>', '<cmd>Telescope git_branches<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-g><C-n>', '<cmd>!git checkout -b ', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-g><C-g>', '<cmd>Neogit<CR>', { noremap = true })
 
 vim.api.nvim_set_keymap('n', 'ff', '<cmd>HopWord<cr>', { noremap = true })
