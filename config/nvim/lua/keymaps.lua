@@ -4,7 +4,9 @@ vim.g.maplocalleader = ' '
 vim.o.timeoutlen = 250
 
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true })
-vim.api.nvim_set_keymap('i', 'uu', '_', { noremap = true })
+vim.api.nvim_set_keymap('i', 'kk', '_', { noremap = true })
+vim.api.nvim_set_keymap('n', 'oo', 'o<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'OO', 'O<Esc>', { noremap = true })
 
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
