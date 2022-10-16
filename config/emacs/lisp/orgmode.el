@@ -18,17 +18,19 @@
   (org-bullets-bullet-list '("◉" "●" "○" "○" "○")))
 
 (with-eval-after-load 'org-faces
-  (dolist (face '((org-level-1 . 1.4)
-       		  (org-level-2 . 1.2)
-		  (org-level-3 . 1.0)
-	          (org-level-4 . 1.0)
-	          (org-level-5 . 1.0)))
-    (set-face-attribute (car face) nil :font "Source Code Pro" :weight 'regular :height (cdr face))))
+  (dolist (face '((org-level-1 1.2 "Violet")
+       		  (org-level-2 1.1 "LightSkyBlue")
+	          (org-level-3 1.0 "LightBlue")))
+    (set-face-attribute (car face) nil
+			:font "Source Code Pro"
+			:weight 'regular
+			:height (car (cdr face))
+			:foreground (car (cdr (cdr face))))))
 
 ;; Customize - within lists into a dot
-(font-lock-add-keywords 'org-mode
-			'(("^ *\\([-]\\) "
-			   (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+;;(font-lock-add-keywords 'org-mode
+;;			'(("^ *\\([-]\\) "
+;;			   (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 (setq org-agenda-files
       '("~/Documents/Orgfiles/todo.org"))
