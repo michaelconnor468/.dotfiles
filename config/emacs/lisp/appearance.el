@@ -9,7 +9,7 @@
 
 (load-theme 'one-dark t)
 
-(set-face-attribute 'default nil :font "Source Code Pro" :height 120)
+(set-face-attribute 'default nil :font "Source Code Pro" :height 100 :inherit 'fixed-pitch)
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))

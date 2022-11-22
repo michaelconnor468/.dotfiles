@@ -1,6 +1,5 @@
 (defun mjc/org-mode-setup ()
   (org-indent-mode)
-  (variable-pitch-mode 1)
   (visual-line-mode 1))
 
 (setq org-indent-indentation-per-level 2)
@@ -17,6 +16,10 @@
   :custom
   (org-bullets-bullet-list '("◉" "●" "○" "○" "○")))
 
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "<normal-state> g j") nil)
+  (define-key org-mode-map (kbd "<normal-state> g k") nil))
+
 (with-eval-after-load 'org-faces
   (dolist (face '((org-level-1 1.2 "Violet")
        		  (org-level-2 1.1 "LightSkyBlue")
@@ -25,12 +28,13 @@
 			:font "Source Code Pro"
 			:weight 'regular
 			:height (car (cdr face))
+			:inherit 'fixed-pitch
 			:foreground (car (cdr (cdr face))))))
 
-;; Customize - within lists into a dot
-;;(font-lock-add-keywords 'org-mode
-;;			'(("^ *\\([-]\\) "
-;;			   (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+;; Convert "-" at start of lists to "•"
+(font-lock-add-keywords 'org-mode
+			'(("^ *\\([-]\\) "
+			   (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 (setq org-agenda-files
       '("~/Documents/Orgfiles/todo.org"))
