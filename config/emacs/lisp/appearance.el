@@ -1,3 +1,5 @@
+(require 'all-the-icons)
+
 (setq inhibit-startup-message t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)

@@ -9,6 +9,9 @@
 
   (james/leader-keys
     "t" '(:ignore t :which-key "toggles")
+    "e" 'dired-jump
+    "b" 'ibuffer
+    "\\" 'vterm
     "s" 'counsel-switch-buffer))
 
 (use-package key-chord)
