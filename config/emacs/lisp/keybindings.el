@@ -8,7 +8,8 @@
     :global-prefix "C-SPC")
 
   (james/leader-keys
-    "t" '(:ignore t :which-key "toggles")))
+    "t" '(:ignore t :which-key "toggles")
+    "s" 'counsel-switch-buffer))
 
 (use-package key-chord)
 (use-package evil
