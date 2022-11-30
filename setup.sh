@@ -20,7 +20,7 @@ stage () {
 }
 
 push () {
-    sync $*
+    stage $*
     git add config etc
     git commit -am "Update tracked config folders to latest local edition"
     git push origin master
@@ -37,7 +37,7 @@ sync () {
 
 pull () {
     git pull origin master
-    update $*
+    sync $*
 }
 
 install () {
