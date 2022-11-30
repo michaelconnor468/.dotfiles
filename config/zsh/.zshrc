@@ -1,6 +1,7 @@
 export TERM="xterm-256color"
 export EDITOR="vim"
 export TERMINAL="kitty"
+export PROMPT_EOL_MARK=''
 
 ## autoload vcs and colors
 autoload -Uz vcs_info
@@ -26,7 +27,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})%{$reset_color%}"
-PROMPT="%B%{$fg[green]%}%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}] %{$fg[yellow]%}%c %(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>)%{$reset_color%}"
+PROMPT="%B%{$fg[green]%}%{$fg[blue]%}<%{$fg[white]%}%n%{$fg[red]%}@%{$fg[white]%}%m%{$fg[blue]%}> %{$fg[yellow]%}%c %(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>)%{$reset_color%}"
 PROMPT+="\$vcs_info_msg_0_ "
 
 HISTSIZE=1000
@@ -70,3 +71,20 @@ elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
 fi
 
 source ~/.config/zsh/lscolors.sh
+
+# emacs vterm stuff
+vterm_printf() {
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
