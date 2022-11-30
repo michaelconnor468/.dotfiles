@@ -1,5 +1,4 @@
--- Fix icons showing up as Chinese characters on Mac
-if vim.fn.has "mac" == 0 then
+if vim.fn.has "mac" == 1 then
   return {
     kind = {
       Text = "",

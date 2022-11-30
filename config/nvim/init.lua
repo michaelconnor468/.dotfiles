@@ -32,16 +32,18 @@ if error_count > 0 then
     print(' ')
 end
 
-require('onedark').setup { 
-    style = 'darker',
-    colors = {
-        bg = '#141412',
-        bg0 = '#141412',
-        bg1 = '#141412',
-        bg2 = '#2f2f2f',
-        bg_d = '#141412'
+if vim.fn.has "mac" == 0 then
+    require('onedark').setup { 
+        style = 'darker',
+        colors = {
+            bg = '#141412',
+            bg0 = '#141412',
+            bg1 = '#141412',
+            bg2 = '#2f2f2f',
+            bg_d = '#141412'
+        }
     }
-}
+end
 require('onedark').load()
 
 vim.cmd('set runtimepath+=/home/james/Projects/vim')
