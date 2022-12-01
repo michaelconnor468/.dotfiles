@@ -11,6 +11,8 @@
     "t" '(:ignore t :which-key "toggles")
     "e" 'dired-jump
     "b" 'ibuffer
+    "f" 'counsel-git-grep
+    "o" 'find-file-in-project
     "\\" 'vterm
     "s" 'counsel-switch-buffer))
 
@@ -36,6 +38,8 @@
 (setq key-chord-two-keys-delay 0.1)
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 (key-chord-mode 1)
+
+(setq mac-command-key-is-meta t)
 
 (use-package evil-collection
   :after evil
