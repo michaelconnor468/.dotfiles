@@ -36,4 +36,3 @@
   :mode "\\.go\\'"
   :hook (before-save . gofmt-before-save)
   :custom (gofmt-command "goimports"))
->>>>>>> tmp
