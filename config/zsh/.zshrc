@@ -1,6 +1,7 @@
 export TERM="xterm-256color"
 export EDITOR="vim"
 export TERMINAL="kitty"
+export JAVA_HOME="/usr/lib/jvm/java-19-openjdk"
 export PROMPT_EOL_MARK=''
 
 ## autoload vcs and colors
@@ -42,6 +43,7 @@ alias cat='ccat -G String="darkgreen" -G Comment="darkgreen" -G Type="darkyellow
 alias diff='diff --color'
 alias grep='grep --color=always'
 alias weather='curl -s "wttr.in/?Fu"'
+alias screenshot='flameshot gui'
 
 function cl {
     cd $1 && ls -al 
