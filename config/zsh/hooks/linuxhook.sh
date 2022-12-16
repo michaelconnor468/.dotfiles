@@ -27,3 +27,5 @@ function enstat {
         printf "%4s \n" $(($end-$start))
     fi
 }
+
+alias killcom='kill -SIGINT $(ps -u $(whoami) | awk "/picom/ {print $1}" | tail -n 1)'

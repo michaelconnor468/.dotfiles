@@ -10,10 +10,6 @@
 (use-package lsp-treemacs
   :after lsp)
 
-(use-package typescript-mode
-  :mode "\\.ts\\'"
-  :hook (typescript-mode . lsp-deferred))
-
 (use-package company
   :after lsp-mode
   :hook (lsp-mode . company-mode)
@@ -29,3 +25,15 @@
   (setq lsp-ui-sideline-enable t)
   (setq lsp-ui-sideline-show-hover nil)
   (setq lsp-ui-doc-position 'bottom))
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred))
+
+(use-package lsp-java :config (add-hook 'java-mode-hook 'lsp))
+
+(use-package go-mode
+  :mode "\\.go\\'"
+  :hook (before-save . gofmt-before-save)
+  :custom (gofmt-command "goimports"))
+>>>>>>> tmp
