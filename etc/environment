@@ -1,0 +1,23 @@
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+QT_STYLE_OVERRIDE="Adwaita-Dark"
+
+XDG_CONFIG_HOME="$HOME/.config"
+XDG_CACHE_HOME="$HOME/.cache"
+XDG_DATA_HOME="$HOME/.local/share"
+XDG_STATE_HOME="$HOME/.local/state"
+
+GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+_JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
+XAUTHORITY="$XDG_CONFIG_HOME/.Xauthority"
+VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
+VAGRANT_ALIAS_FILE="$XDG_DATA_HOME/vagrant/aliases"
+GTK_RC_FILES="$XDG_CONFIG_HOME/gtk/gtkrc"
+GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk2/gtkrc"
+STACK_ROOT="$XDG_DATA_HOME/stack"
+WINEPREFIX="$HOME/Games/.wine"
+PASSWORD_STORE_DIR="$HOME/.local/password-store"
+GNUPGHOME="$HOME/.local/gnupg"
