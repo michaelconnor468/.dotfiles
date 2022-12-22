@@ -35,7 +35,7 @@ c.fonts.statusbar = c.fonts.default_family
 c.fonts.hints = "bold 13px 'DejaVu Sans Mono'"
 
 c.auto_save.session = True
-c.url.searchengines = {'DEFAULT': 'https://google.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
 
 c.content.blocking.adblock.lists = adblock_list
 
