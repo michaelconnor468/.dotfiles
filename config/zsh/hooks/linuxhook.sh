@@ -28,4 +28,4 @@ function enstat {
     fi
 }
 
-alias killcom='kill -SIGINT $(ps -u $(whoami) | awk "/picom/ {print $1}" | tail -n 1)'
+alias killcom='kill -SIGINT $(ps -u $(whoami) | awk "/picom/ {print \$1}" | tail -n 1)'
