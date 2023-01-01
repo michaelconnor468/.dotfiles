@@ -7,8 +7,7 @@ stage () {
             pacman -Qq > packages
             for f in `find etc -maxdepth 1 -mindepth 1 -type d`;
             do
-                from_dir=`echo $f | awk 'BEGIN {FS="/"} {print $3}'`
-                rsync -a /etc/$from_dir etc
+                rsync -a /$f .
             done
         fi
     fi
