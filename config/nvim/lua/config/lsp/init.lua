@@ -1,8 +1,12 @@
-local ok, _ = pcall(require, 'lspconfig')
+require('config.lsp.mason')
+
+local handlers = require('config.lsp.handlers')
+handlers.setup()
+
+local ok, lsp = pcall(require, 'lspconfig')
 if not ok then
-    print('Could not procure lspconfig')
+    print('Could not procure lsp')
     return
 end
 
-require('config.lsp.lsp-installer')
-require('config.lsp.handlers').setup()
+lsp.sumneko_lua.setup({})

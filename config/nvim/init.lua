@@ -18,18 +18,7 @@ local modules_to_load = {
 
 local error_count = 0
 for _, module in ipairs(modules_to_load) do
-    local ok, _ = pcall(require, module)
-    if not ok then
-        if error_count == 0 then
-            print('### Errors in loading modules: ') 
-        end
-        print('Unable to load module ' .. module)
-        error_count = error_count + 1
-    end
-end
-
-if error_count > 0 then
-    print(' ')
+    require(module)
 end
 
 if vim.fn.has "mac" == 0 then
