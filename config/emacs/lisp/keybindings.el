@@ -35,7 +35,7 @@
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
 (evil-mode)
-(setq key-chord-two-keys-delay 0.1)
+(setq key-chord-two-keys-delay 0.2)
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 (key-chord-mode 1)
 
