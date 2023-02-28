@@ -10,8 +10,8 @@ vim.api.nvim_set_keymap('n', 'OO', 'O<Esc>', { noremap = true })
 
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
-vim.api.nvim_set_keymap('x', 'J', '<cmd>move \'>+1<CR>gv-gv', { noremap = true })
-vim.api.nvim_set_keymap('x', 'K', '<cmd>move \'<-2<CR>gv-gv', { noremap = true })
+vim.api.nvim_set_keymap('x', '<C-j>', '<cmd>move \'>+1<CR>gv-gv', { noremap = true })
+vim.api.nvim_set_keymap('x', '<C-k>', '<cmd>move \'<-2<CR>gv-gv', { noremap = true })
 vim.api.nvim_set_keymap('x', '<leader>p', '"_dP', { noremap = true })
 
 vim.api.nvim_set_keymap('n', 'S', ':%s///g<Left><Left><Left>', { noremap = true })
