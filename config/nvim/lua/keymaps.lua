@@ -30,6 +30,7 @@ vim.keymap.set(all_modes, '<C-w><C-c>', '<cmd>close<CR>', { noremap = true })
 vim.keymap.set(all_modes, '<C-w><C-o>', '<cmd>only<CR>', { noremap = true })
 vim.keymap.set(all_modes, '<C-w><C-s>', '<cmd>split<CR>', { noremap = true })
 vim.keymap.set(all_modes, '<C-w><C-e>', '<cmd>e #<CR>', { noremap = true })
+vim.keymap.set(all_modes, '<C-w><C-t>', '<cmd>gt<CR>', { noremap = true })
 
 vim.keymap.set(all_modes, '<C-h>i', '<cmd>vert h<CR>', { noremap = true })
 
