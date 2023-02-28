@@ -7,6 +7,7 @@ vim.opt.errorbells = false
 vim.opt.undofile = true
 -- vim.opt.undodir = '$HOME/.config/.nvim/undodir'
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.autowrite = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
